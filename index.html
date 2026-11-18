@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Política de Referer requerida por YouTube para evitar Error 153 en embeds -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>GameVault — Juegos digitales PS4 y PS5 en Argentina</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -92,7 +94,7 @@
     <div class="bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-700 text-white text-xs font-medium py-2 px-4 text-center">
         <span class="inline-flex items-center gap-2">
             <span class="bg-white/20 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">⚡ Entrega Automática</span>
-            <span>+22.000 entregas realizadas · Atención personalizada de 12 a 22 hs · Hasta −92% vs PS Store</span>
+            <span>Atención personalizada de 12 a 22 hs · Hasta −92% vs PS Store</span>
         </span>
     </div>
 
@@ -161,7 +163,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION: Preventa Destacada (Estilo Epicodes) -->
+    <!-- HERO SECTION: Preventa Destacada -->
     <section class="relative overflow-hidden border-b border-zinc-800/80">
         <!-- Fondo artístico con gradiente -->
         <div class="absolute inset-0 z-0">
@@ -215,16 +217,8 @@
                         </div>
                     </div>
 
-                    <!-- Métricas de Confianza (como en Epicodes) -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-zinc-800/80">
-                        <div>
-                            <p class="text-xl sm:text-2xl font-black text-white">+22.000</p>
-                            <p class="text-xs text-zinc-400">entregas exitosas</p>
-                        </div>
-                        <div>
-                            <p class="text-xl sm:text-2xl font-black text-white">+6 años</p>
-                            <p class="text-xs text-zinc-400">en el mercado gamer</p>
-                        </div>
+                    <!-- Métricas de Confianza -->
+                    <div class="grid grid-cols-2 gap-4 pt-6 border-t border-zinc-800/80">
                         <div>
                             <p class="text-xl sm:text-2xl font-black text-emerald-400">Hasta −92%</p>
                             <p class="text-xs text-zinc-400">ahorro vs PS Store</p>
@@ -238,18 +232,18 @@
 
                 <!-- Columna Carátula 3D / Showcase -->
                 <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-sm rounded-3xl overflow-hidden border border-zinc-700/80 shadow-2xl shadow-blue-900/30 bg-zinc-900 group">
+                    <div onclick="openGameModal('gta6')" class="relative w-full max-w-sm rounded-3xl overflow-hidden border border-zinc-700/80 shadow-2xl shadow-blue-900/30 bg-zinc-900 group cursor-pointer">
                         <div class="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-xs font-bold text-cyan-400">
                             🔥 AAA DEL MOMENTO
                         </div>
-                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" 
-                             onerror="this.src='https://placehold.co/600x750/1e1b4b/60a5fa?text=Grand+Theft+Auto+VI'"
+                        <img src="https://upload.wikimedia.org/wikipedia/en/4/46/Grand_Theft_Auto_VI.png" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x750/1e1b4b/60a5fa?text=Grand+Theft+Auto+VI'"
                              alt="Grand Theft Auto VI Cover" 
-                             class="w-full h-[380px] object-cover group-hover:scale-105 transition-transform duration-500">
+                             class="w-full h-[380px] object-cover object-top group-hover:scale-105 transition-transform duration-500">
                         <div class="p-5 bg-gradient-to-t from-zinc-950 via-zinc-950/95 to-zinc-900">
                             <div class="flex justify-between items-center mb-2">
                                 <span class="text-xs font-semibold text-zinc-400">Acción · Mundo abierto</span>
-                                <span class="text-xs text-emerald-400 font-semibold"><i class="fa-solid fa-fire"></i> +300 entregadas</span>
+                                <span class="text-xs text-blue-400 font-semibold"><i class="fa-solid fa-play mr-1 text-[10px]"></i>Ver tráiler</span>
                             </div>
                             <h3 class="text-lg font-bold text-white">Grand Theft Auto VI: Ultimate Edition</h3>
                             <div class="mt-3 flex items-center justify-between text-sm">
@@ -276,7 +270,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CATÁLOGO PRINCIPAL: Lo más jugado ahora -->
+    <!-- SECCIÓN CATÁLOGO PRINCIPAL -->
     <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         
         <!-- Encabezado y Filtros -->
@@ -527,16 +521,6 @@
 
             <div class="bg-cardBg border border-cardBorder rounded-2xl overflow-hidden">
                 <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left font-bold text-white hover:text-blue-400 transition-colors">
-                    <span>¿Cómo y cuándo me llega el juego?</span>
-                    <i class="fa-solid fa-plus text-zinc-500 transition-transform"></i>
-                </button>
-                <div class="hidden px-5 pb-5 text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/60 pt-3">
-                    Hacés el pedido en la web, realizás el pago y enviás el comprobante. Una vez acreditado, recibís por correo electrónico y WhatsApp el usuario, contraseña y tutorial paso a paso para instalarlo en menos de 5 minutos.
-                </div>
-            </div>
-
-            <div class="bg-cardBg border border-cardBorder rounded-2xl overflow-hidden">
-                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left font-bold text-white hover:text-blue-400 transition-colors">
                     <span>¿Tienen garantía?</span>
                     <i class="fa-solid fa-plus text-zinc-500 transition-transform"></i>
                 </button>
@@ -569,10 +553,19 @@
         </div>
     </footer>
 
+    <!-- BOTÓN FLOTANTE DE WHATSAPP PARA ATENCIÓN AL CLIENTE -->
+    <a href="https://wa.me/5491100000000?text=Hola%20GameVault!%20Necesito%20atenci%C3%B3n%20y%20asesoramiento%20con%20un%20juego."
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Solicitar atención por WhatsApp"
+       class="fixed bottom-5 right-5 z-40 group flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-3.5 rounded-full shadow-2xl shadow-emerald-600/35 border border-emerald-400/30 transition-all duration-300 hover:scale-105">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="text-xs sm:text-sm pr-1 hidden sm:inline">Atención WhatsApp</span>
+    </a>
+
     <!-- DRAWER LATERAL DEL CARRITO -->
     <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
     <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-zinc-950 border-l border-zinc-800 z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
-        <!-- Header Carrito -->
         <div class="p-5 border-b border-zinc-800 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-cart-shopping text-blue-500"></i>
@@ -583,9 +576,7 @@
             </button>
         </div>
 
-        <!-- Lista de items -->
         <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4">
-            <!-- Estado vacío por defecto -->
             <div class="text-center py-16">
                 <div class="w-16 h-16 rounded-2xl bg-zinc-900 text-zinc-600 flex items-center justify-center mx-auto mb-4 text-2xl">
                     <i class="fa-solid fa-basket-shopping"></i>
@@ -595,7 +586,6 @@
             </div>
         </div>
 
-        <!-- Footer Checkout -->
         <div id="cart-footer" class="hidden p-5 border-t border-zinc-800 bg-zinc-900/50 space-y-4">
             <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex items-center gap-2.5 text-xs text-zinc-300">
                 <i class="fa-solid fa-building-columns text-blue-400 text-sm"></i>
@@ -613,7 +603,7 @@
     </aside>
 
     <!-- MODAL DETALLE DEL JUEGO -->
-    <div id="game-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
+    <div id="game-modal" onclick="if(event.target === this) closeGameModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
         <div class="bg-zinc-950 border border-zinc-800 rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl relative my-auto">
             <button onclick="closeGameModal()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/80 hover:bg-zinc-800 text-white flex items-center justify-center border border-white/15 transition-colors">
                 <i class="fa-solid fa-xmark"></i>
@@ -694,7 +684,6 @@
                 platform: 'PS5',
                 category: 'Acción',
                 discount: '-20%',
-                delivered: '+300 entregadas',
                 pricePri: 85900,
                 priceSec: 39900,
                 isCheap: false,
@@ -714,7 +703,6 @@
                 platform: 'PS5',
                 category: 'Deportes',
                 discount: '-62%',
-                delivered: '+1.000 entregadas',
                 pricePri: 37800,
                 priceSec: 22900,
                 isCheap: false,
@@ -725,7 +713,7 @@
                 players: '1-4 Local / Hasta 22 Online',
                 trailerId: 'pBM2xyco_Kg',
                 description: 'Viví el fútbol con tecnología HyperMotion avanzada, Ultimate Team renovado, Modo Carrera y todas las ligas oficiales del mundo.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/b/b1/EA_Sports_FC_25_cover.jpg',
+                image: 'https://image.api.playstation.com/vulcan/ap/rnd/202407/1814/002081067e1973c68132b003343a6d620f84f84b68c0848a.png',
                 fallback: 'https://placehold.co/400x520/064e3b/34d399?text=EA+SPORTS+FC+27'
             },
             {
@@ -734,7 +722,6 @@
                 platform: 'PS5',
                 category: 'Acción',
                 discount: '-67%',
-                delivered: '+2.000 entregadas',
                 pricePri: 11900,
                 priceSec: 10900,
                 isCheap: false,
@@ -745,7 +732,7 @@
                 players: '1 Jugador / Online 30',
                 trailerId: 'QkkoHAzjnUs',
                 description: 'Experimentá el éxito de ventas mundial con gráficos 4K a 60 FPS, tiempos de carga ultrarrápidos y acceso completo a GTA Online.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png',
+                image: 'https://image.api.playstation.com/vulcan/ap/rnd/202202/2816/K6Yw8929354551435154.png',
                 fallback: 'https://placehold.co/400x520/1f2937/fbbf24?text=GTA+V+PS5'
             },
             {
@@ -754,7 +741,6 @@
                 platform: 'PS4',
                 category: 'Acción',
                 discount: '-85%',
-                delivered: '+1.000 entregadas',
                 pricePri: 11900,
                 priceSec: 6900,
                 isCheap: true,
@@ -774,7 +760,6 @@
                 platform: 'PS5',
                 category: 'Acción',
                 discount: '-68%',
-                delivered: '+850 entregadas',
                 pricePri: 24900,
                 priceSec: 18900,
                 isCheap: false,
@@ -794,7 +779,6 @@
                 platform: 'PS5',
                 category: 'Acción',
                 discount: '-67%',
-                delivered: '+1.400 entregadas',
                 pricePri: 23900,
                 priceSec: 17900,
                 isCheap: false,
@@ -814,7 +798,6 @@
                 platform: 'PS5',
                 category: 'Acción',
                 discount: '-68%',
-                delivered: '+300 entregadas',
                 pricePri: 26900,
                 priceSec: 18900,
                 isCheap: false,
@@ -834,7 +817,6 @@
                 platform: 'PS5',
                 category: 'Acción',
                 discount: '-91%',
-                delivered: '+500 entregadas',
                 pricePri: 5900,
                 priceSec: 3900,
                 isCheap: true,
@@ -854,7 +836,6 @@
                 platform: 'PS5',
                 category: 'Acción',
                 discount: '-92%',
-                delivered: '+900 entregadas',
                 pricePri: 7900,
                 priceSec: 4900,
                 isCheap: true,
@@ -874,7 +855,6 @@
                 platform: 'PS5',
                 category: 'Terror',
                 discount: '-77%',
-                delivered: '+650 entregadas',
                 pricePri: 9900,
                 priceSec: 6900,
                 isCheap: true,
@@ -894,7 +874,6 @@
                 platform: 'PS4',
                 category: 'Terror',
                 discount: '-80%',
-                delivered: '+250 entregadas',
                 pricePri: 9600,
                 priceSec: 6000,
                 isCheap: true,
@@ -914,7 +893,6 @@
                 platform: 'PS4',
                 category: 'Deportes',
                 discount: '-94%',
-                delivered: '+400 entregadas',
                 pricePri: 4900,
                 priceSec: 2900,
                 isCheap: true,
@@ -958,9 +936,8 @@
                                 ${game.discount}
                             </span>
 
-                            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-zinc-200">
-                                <span><i class="fa-solid fa-fire text-amber-400 mr-1"></i>${game.delivered}</span>
-                                <span class="bg-black/70 border border-white/15 px-2 py-0.5 rounded text-blue-300 font-semibold">
+                            <div class="absolute bottom-3 right-3 flex items-center text-[11px] text-zinc-200">
+                                <span class="bg-black/75 border border-white/15 px-2.5 py-1 rounded-md text-blue-300 font-semibold">
                                     <i class="fa-solid fa-play mr-1 text-[9px]"></i>Ver info y tráiler
                                 </span>
                             </div>
@@ -1010,18 +987,49 @@
             const safeTitle = game.title.replace(/'/g, "\\'");
             const modal = document.getElementById('game-modal');
             const content = document.getElementById('game-modal-content');
+            const isLocalFile = window.location.protocol === 'file:';
+            const youtubeWatchUrl = `https://www.youtube.com/watch?v=${game.trailerId}`;
 
-            content.innerHTML = `
-                <div class="w-full aspect-video bg-black border-b border-zinc-800 relative">
+            // Evita el Error 153 de YouTube enviando un referrer válido o mostrando vista previa directa en modo archivo local
+            const videoSection = isLocalFile ? `
+                <div class="w-full aspect-video bg-zinc-900 border-b border-zinc-800 relative flex flex-col items-center justify-center p-6 text-center overflow-hidden">
+                    <img src="https://i.ytimg.com/vi/${game.trailerId}/maxresdefault.jpg"
+                         onerror="this.src='https://i.ytimg.com/vi/${game.trailerId}/hqdefault.jpg'"
+                         alt="Vista previa tráiler ${game.title}"
+                         class="absolute inset-0 w-full h-full object-cover opacity-35">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-black/40"></div>
+                    <div class="relative z-10 max-w-md space-y-3">
+                        <a href="${youtubeWatchUrl}" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-3 bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-3.5 rounded-2xl shadow-xl shadow-red-600/30 transition-all transform hover:scale-105">
+                            <i class="fa-brands fa-youtube text-2xl"></i>
+                            <span>Ver tráiler oficial en YouTube</span>
+                        </a>
+                        <p class="text-[11px] text-zinc-300">
+                            Abriste el archivo localmente (<code>file://</code>). Al subir la web a un hosting o servidor local (<code>http://localhost</code>), el video se reproducirá integrado aquí automáticamente.
+                        </p>
+                    </div>
+                </div>
+            ` : `
+                <div class="w-full aspect-video bg-black border-b border-zinc-800 relative group">
                     <iframe id="game-trailer-iframe"
                             class="w-full h-full"
-                            src="https://www.youtube.com/embed/${game.trailerId}?rel=0"
+                            src="https://www.youtube-nocookie.com/embed/${game.trailerId}?rel=0&modestbranding=1"
                             title="Tráiler oficial de ${game.title}"
+                            referrerpolicy="strict-origin-when-cross-origin"
                             frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen>
                     </iframe>
+                    <a href="${youtubeWatchUrl}" target="_blank" rel="noopener noreferrer"
+                       class="absolute bottom-3 right-3 bg-black/80 hover:bg-red-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg border border-white/15 transition-colors flex items-center gap-1.5">
+                        <i class="fa-brands fa-youtube text-red-500"></i>
+                        <span>Abrir en YouTube</span>
+                    </a>
                 </div>
+            `;
+
+            content.innerHTML = `
+                ${videoSection}
 
                 <div class="p-6 sm:p-7">
                     <div class="flex flex-col sm:flex-row gap-5">
@@ -1236,13 +1244,17 @@
         }
 
         function copyBankData(text, label) {
-            const tempInput = document.createElement('input');
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-            showToast(label, text);
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => showToast(label, text));
+            } else {
+                const tempInput = document.createElement('input');
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                showToast(label, text);
+            }
         }
 
         function checkoutWhatsApp() {
@@ -1283,6 +1295,13 @@
                 toast.classList.add('translate-y-24', 'opacity-0');
             }, 2600);
         }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeGameModal();
+                closeTransferModal();
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             renderCatalog();
