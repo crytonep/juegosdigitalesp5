@@ -197,7 +197,7 @@
     </header>
 
     <!-- ===================================================================== -->
-    <!-- VISTA EXCLUSIVA PARA MÓVILES (lg:hidden) - IDÉNTICA A LA IMAGEN       -->
+    <!-- VISTA EXCLUSIVA PARA MÓVILES (lg:hidden)                              -->
     <!-- ===================================================================== -->
     <div id="mobile-home-view" class="lg:hidden px-3.5 pt-3 pb-2 space-y-6">
         
@@ -1149,7 +1149,7 @@
                 image: 'https://epicodes.com.ar/cdn/covers/spiderman-2-ps5.webp',
                 fallback: 'https://epicodes.com.ar/img/hero-opt/spiderman2_poster.jpg?v=20260723b'
             },
-            // --- NUEVOS JUEGOS EXTRAÍDOS DEL JSON OFICIAL ---
+            // --- JUEGOS EXTRAÍDOS DEL JSON OFICIAL ---
             {
                 id: 'alanwake2',
                 slug: 'alan-wake-2',
@@ -1832,7 +1832,7 @@
             }
         }
 
-        // Renderizar la tira de ofertas activas en móvil
+        // Renderizar la tira de ofertas activas en móvil (sin etiqueta PS5/PS4 sobre la portada)
         function renderMobileOffersStrip() {
             const strip = document.getElementById('mobile-offers-strip');
             if (!strip) return;
@@ -1850,12 +1850,6 @@
                          alt="${game.title}" 
                          class="w-full h-full object-cover object-center">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-black/35"></div>
-
-                    <!-- Badge plataforma superior izquierda -->
-                    <span class="absolute top-2 left-2 bg-black/75 backdrop-blur-md text-white text-[9px] font-black px-1.5 py-0.5 rounded flex items-center gap-1 border border-white/10">
-                        <i class="fa-brands fa-playstation text-[9px]"></i>
-                        <span>${game.platform}</span>
-                    </span>
 
                     <!-- Badge descuento naranja superior derecha -->
                     <span class="absolute top-2 right-2 bg-[#fb923c] text-zinc-950 text-[10px] font-black px-1.5 py-0.5 rounded">
@@ -2112,13 +2106,7 @@
             return (arsAmount / USD_RATE).toFixed(2);
         }
 
-        function getPlatformBadgeHTML(platform) {
-            if (platform === 'PS5') {
-                return `<span class="inline-flex items-center gap-1"><i class="fa-brands fa-playstation text-cyan-400 text-[10px] sm:text-xs"></i><span>PS5</span></span>`;
-            }
-            return `<span class="inline-flex items-center gap-1"><i class="fa-brands fa-playstation text-blue-400 text-[10px] sm:text-xs"></i><span>${platform}</span></span>`;
-        }
-
+        // Tarjeta de juego del catálogo (sin etiqueta PS5/PS4 sobre la portada)
         function createGameCard(game) {
             const safeTitle = game.title.replace(/'/g, "\\'");
             return `
@@ -2130,10 +2118,6 @@
                                  alt="${game.title}" 
                                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
                             <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-black/25"></div>
-                            
-                            <span class="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 bg-black/85 backdrop-blur-md border border-white/15 text-white text-[10px] sm:text-[11px] font-extrabold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md">
-                                ${getPlatformBadgeHTML(game.platform)}
-                            </span>
 
                             <span class="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 bg-emerald-500 text-zinc-950 text-[10px] sm:text-xs font-black px-1.5 py-0.5 sm:px-2 rounded-md">
                                 ${game.discount}
