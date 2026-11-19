@@ -181,7 +181,9 @@
                     <div class="inline-flex flex-wrap items-center gap-2">
                         <span class="bg-blue-600 text-white text-xs font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider">PREVENTA</span>
                         <span class="bg-zinc-900/90 border border-zinc-700 text-zinc-300 text-xs font-semibold px-2.5 py-1 rounded-md">Rockstar Games · 2026</span>
-                        <span class="bg-zinc-900/90 border border-zinc-700 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md">PS5</span>
+                        <span class="bg-zinc-900/90 border border-zinc-700 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md inline-flex items-center gap-1.5">
+                            <i class="fa-brands fa-playstation text-sm"></i> PS5
+                        </span>
                     </div>
 
                     <div>
@@ -283,8 +285,8 @@
             <!-- Botones de Filtro por Plataforma / Categoría -->
             <div class="flex flex-wrap items-center gap-2" id="filter-buttons">
                 <button onclick="filterByPlatform('ALL')" data-filter="ALL" class="filter-btn active bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-xl transition-colors">Todos</button>
-                <button onclick="filterByPlatform('PS5')" data-filter="PS5" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors">PS5</button>
-                <button onclick="filterByPlatform('PS4')" data-filter="PS4" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors">PS4</button>
+                <button onclick="filterByPlatform('PS5')" data-filter="PS5" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors inline-flex items-center gap-1.5"><i class="fa-brands fa-playstation text-sm"></i> PS5</button>
+                <button onclick="filterByPlatform('PS4')" data-filter="PS4" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors inline-flex items-center gap-1.5"><i class="fa-brands fa-playstation text-sm"></i> PS4</button>
                 <button onclick="filterByCategory('Deportes')" data-filter="Deportes" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors">Deportes</button>
                 <button onclick="filterByCategory('Acción')" data-filter="Acción" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors">Acción</button>
                 <button onclick="filterByCategory('Terror')" data-filter="Terror" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors">Terror</button>
@@ -338,10 +340,10 @@
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 relative overflow-hidden">
                     <span class="text-5xl font-black text-zinc-800/80 absolute right-5 top-4 select-none">02</span>
                     <div class="w-11 h-11 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center mb-4 text-lg">
-                        <i class="fa-solid fa-building-columns"></i>
+                        <i class="fa-solid fa-wallet"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Transferís y validás</h3>
-                    <p class="text-sm text-zinc-400">Abonás exclusivamente por transferencia bancaria (Alias / CBU) y enviás el comprobante en segundos.</p>
+                    <h3 class="text-lg font-bold text-white mb-2">Pagás y validás</h3>
+                    <p class="text-sm text-zinc-400">Abonás por Transferencia Bancaria (ARS), PayPal (USD) o Binance USDT y enviás el comprobante en segundos.</p>
                 </div>
 
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 relative overflow-hidden">
@@ -494,7 +496,7 @@
                     <i class="fa-solid fa-plus text-zinc-500 transition-transform"></i>
                 </button>
                 <div class="hidden px-5 pb-5 text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/60 pt-3">
-                    Aceptamos únicamente <strong class="text-white">Transferencia Bancaria (Alias / CBU)</strong> desde cualquier banco o billetera virtual de Argentina. Al finalizar tu pedido te mostramos los datos bancarios para transferir y enviar el comprobante.
+                    Aceptamos <strong class="text-white">Transferencia Bancaria en Pesos (Alias / CBU)</strong>, <strong class="text-blue-400">PayPal en Dólares (USD)</strong> y <strong class="text-amber-400">Binance / Cripto (USDT)</strong>. Al finalizar tu pedido elegís el método que prefieras y te mostramos los datos para enviar el comprobante.
                 </div>
             </div>
 
@@ -560,12 +562,13 @@
        aria-label="Solicitar atención por WhatsApp"
        class="fixed bottom-5 right-5 z-40 group flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-3.5 rounded-full shadow-2xl shadow-emerald-600/35 border border-emerald-400/30 transition-all duration-300 hover:scale-105">
         <i class="fa-brands fa-whatsapp text-2xl"></i>
-        <span class="text-xs sm:text-sm pr-1 hidden sm:inline">Atención WhatsApp</span>
+        <span class="text-xs sm:text-sm pr-1">Atención al cliente</span>
     </a>
 
     <!-- DRAWER LATERAL DEL CARRITO -->
     <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
     <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-zinc-950 border-l border-zinc-800 z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Header Carrito -->
         <div class="p-5 border-b border-zinc-800 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-cart-shopping text-blue-500"></i>
@@ -576,6 +579,7 @@
             </button>
         </div>
 
+        <!-- Lista de items -->
         <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4">
             <div class="text-center py-16">
                 <div class="w-16 h-16 rounded-2xl bg-zinc-900 text-zinc-600 flex items-center justify-center mx-auto mb-4 text-2xl">
@@ -586,18 +590,29 @@
             </div>
         </div>
 
+        <!-- Footer Checkout -->
         <div id="cart-footer" class="hidden p-5 border-t border-zinc-800 bg-zinc-900/50 space-y-4">
-            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex items-center gap-2.5 text-xs text-zinc-300">
-                <i class="fa-solid fa-building-columns text-blue-400 text-sm"></i>
-                <span>Único medio de pago: <strong class="text-white">Transferencia Bancaria (Alias / CBU)</strong></span>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 space-y-1.5 text-xs text-zinc-300">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-blue-400"></i>
+                    <span class="font-bold text-white">Medios de pago aceptados:</span>
+                </div>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                    <span class="bg-zinc-950 border border-zinc-800 px-2 py-0.5 rounded text-[11px] text-emerald-400 font-semibold">Transferencia ARS</span>
+                    <span class="bg-zinc-950 border border-zinc-800 px-2 py-0.5 rounded text-[11px] text-blue-400 font-semibold">PayPal USD</span>
+                    <span class="bg-zinc-950 border border-zinc-800 px-2 py-0.5 rounded text-[11px] text-amber-400 font-semibold">Binance USDT</span>
+                </div>
             </div>
-            <div class="flex justify-between items-center text-sm">
-                <span class="text-zinc-400">Total a transferir (ARS)</span>
+            <div class="flex justify-between items-end text-sm">
+                <div>
+                    <span class="text-zinc-400 block">Total estimado</span>
+                    <span id="cart-total-usd" class="text-xs font-semibold text-cyan-400">≈ $0.00 USD</span>
+                </div>
                 <span id="cart-total" class="text-2xl font-black text-white">$0</span>
             </div>
             <button onclick="openTransferModal()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 transition-all">
-                <i class="fa-solid fa-money-bill-transfer text-lg"></i>
-                <span>Ver Alias / CBU para transferir</span>
+                <i class="fa-solid fa-wallet text-lg"></i>
+                <span>Elegir medio de pago</span>
             </button>
         </div>
     </aside>
@@ -614,17 +629,17 @@
         </div>
     </div>
 
-    <!-- MODAL PAGO POR TRANSFERENCIA BANCARIA (ALIAS / CBU) -->
-    <div id="transfer-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <!-- MODAL PAGO POR TRANSFERENCIA BANCARIA, PAYPAL Y BINANCE USDT -->
+    <div id="transfer-modal" onclick="if(event.target === this) closeTransferModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
         <div class="bg-zinc-950 border border-zinc-800 rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-2.5">
                     <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-lg">
-                        <i class="fa-solid fa-building-columns"></i>
+                        <i class="fa-solid fa-wallet"></i>
                     </div>
                     <div>
-                        <h3 class="text-lg font-black text-white">Transferencia Bancaria</h3>
-                        <p class="text-xs text-zinc-400">Único medio de pago habilitado</p>
+                        <h3 class="text-lg font-black text-white">Finalizar Compra</h3>
+                        <p class="text-xs text-zinc-400">Elegí tu medio de pago preferido</p>
                     </div>
                 </div>
                 <button onclick="closeTransferModal()" class="w-8 h-8 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center">
@@ -632,7 +647,24 @@
                 </button>
             </div>
 
-            <div class="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-4 space-y-3 mb-4">
+            <!-- Pestañas de selección de método de pago -->
+            <div class="grid grid-cols-3 gap-2 bg-zinc-900 p-1.5 rounded-2xl border border-zinc-800 mb-4">
+                <button id="tab-pay-transfer" onclick="selectPaymentMethod('transfer')" class="pay-tab py-2 px-2 rounded-xl text-xs font-bold flex flex-col items-center justify-center gap-1 bg-blue-600 text-white transition-all shadow-md">
+                    <i class="fa-solid fa-building-columns text-sm"></i>
+                    <span>Transferencia</span>
+                </button>
+                <button id="tab-pay-paypal" onclick="selectPaymentMethod('paypal')" class="pay-tab py-2 px-2 rounded-xl text-xs font-bold flex flex-col items-center justify-center gap-1 text-zinc-400 hover:text-white transition-all">
+                    <i class="fa-brands fa-paypal text-sm"></i>
+                    <span>PayPal USD</span>
+                </button>
+                <button id="tab-pay-binance" onclick="selectPaymentMethod('binance')" class="pay-tab py-2 px-2 rounded-xl text-xs font-bold flex flex-col items-center justify-center gap-1 text-zinc-400 hover:text-white transition-all">
+                    <i class="fa-solid fa-coins text-sm"></i>
+                    <span>Binance USDT</span>
+                </button>
+            </div>
+
+            <!-- Panel 1: Transferencia Bancaria ARS -->
+            <div id="panel-pay-transfer" class="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-4 space-y-3 mb-4">
                 <div class="flex justify-between items-center border-b border-zinc-800 pb-2.5">
                     <span class="text-xs text-zinc-400">Monto exacto a transferir</span>
                     <span id="modal-transfer-total" class="text-xl font-black text-emerald-400">$0</span>
@@ -664,8 +696,59 @@
                 </div>
             </div>
 
+            <!-- Panel 2: PayPal USD -->
+            <div id="panel-pay-paypal" class="hidden bg-zinc-900/90 border border-zinc-800 rounded-2xl p-4 space-y-3 mb-4">
+                <div class="flex justify-between items-center border-b border-zinc-800 pb-2.5">
+                    <span class="text-xs text-zinc-400">Total a enviar en USD</span>
+                    <span id="modal-paypal-total" class="text-xl font-black text-blue-400">$0.00 USD</span>
+                </div>
+
+                <div>
+                    <span class="text-[11px] uppercase font-bold text-zinc-500 block">Modalidad</span>
+                    <span class="text-xs text-zinc-300">Enviar como <strong>Amigos y Familiares</strong> o pago directo en USD</span>
+                </div>
+
+                <div class="flex items-center justify-between bg-zinc-950 border border-zinc-800 rounded-xl p-3">
+                    <div class="min-w-0 pr-2">
+                        <span class="text-[10px] uppercase font-bold text-blue-400 block">CORREO PAYPAL</span>
+                        <span class="text-xs sm:text-sm font-mono font-bold text-white truncate block">pagos@gamevault.com.ar</span>
+                    </div>
+                    <button onclick="copyBankData('pagos@gamevault.com.ar', 'Correo PayPal copiado')" class="bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors shrink-0">
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Panel 3: Binance / Cripto USDT -->
+            <div id="panel-pay-binance" class="hidden bg-zinc-900/90 border border-zinc-800 rounded-2xl p-4 space-y-3 mb-4">
+                <div class="flex justify-between items-center border-b border-zinc-800 pb-2.5">
+                    <span class="text-xs text-zinc-400">Total a enviar en Cripto</span>
+                    <span id="modal-binance-total" class="text-xl font-black text-amber-400">0.00 USDT</span>
+                </div>
+
+                <div class="flex items-center justify-between bg-zinc-950 border border-zinc-800 rounded-xl p-3">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold text-amber-400 block">BINANCE PAY ID (SIN COMISIÓN)</span>
+                        <span class="text-sm font-mono font-bold text-white">482910475</span>
+                    </div>
+                    <button onclick="copyBankData('482910475', 'Binance ID copiado')" class="bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-between bg-zinc-950 border border-zinc-800 rounded-xl p-3">
+                    <div class="min-w-0 pr-2">
+                        <span class="text-[10px] uppercase font-bold text-emerald-400 block">BILLETERA USDT (RED TRC20)</span>
+                        <span class="text-xs font-mono font-bold text-white truncate block">TQn9Y2khEsLJW1ChVWFMSMeRDow5KcbLSE</span>
+                    </div>
+                    <button onclick="copyBankData('TQn9Y2khEsLJW1ChVWFMSMeRDow5KcbLSE', 'Dirección TRC20 copiada')" class="bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors shrink-0">
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar
+                    </button>
+                </div>
+            </div>
+
             <p class="text-xs text-zinc-400 mb-4 leading-relaxed">
-                Una vez realizada la transferencia, enviá el comprobante por WhatsApp para validar el pago y recibir tu juego por mail.
+                Una vez realizado el pago, enviá el comprobante por WhatsApp para validarlo y recibir tu juego al instante.
             </p>
 
             <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 transition-all">
@@ -911,9 +994,22 @@
         let cart = [];
         let currentFilter = 'ALL';
         let currentSearch = '';
+        let selectedPaymentMethod = 'transfer';
+        const USD_RATE = 1200; // Cotización referencial ARS -> USD/USDT
 
         function formatARS(num) {
             return '$' + num.toLocaleString('es-AR');
+        }
+
+        function formatUSD(arsAmount) {
+            return (arsAmount / USD_RATE).toFixed(2);
+        }
+
+        function getPlatformBadgeHTML(platform) {
+            if (platform === 'PS5') {
+                return `<span class="inline-flex items-center gap-1.5"><i class="fa-brands fa-playstation text-cyan-400 text-xs"></i><span>PS5</span></span>`;
+            }
+            return `<span class="inline-flex items-center gap-1.5"><i class="fa-brands fa-playstation text-blue-400 text-xs"></i><span>${platform}</span></span>`;
         }
 
         function createGameCard(game) {
@@ -928,8 +1024,8 @@
                                  class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
                             <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-black/30"></div>
                             
-                            <span class="absolute top-3 left-3 bg-black/80 backdrop-blur-md border border-white/10 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md">
-                                ${game.platform}
+                            <span class="absolute top-3 left-3 bg-black/85 backdrop-blur-md border border-white/15 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md">
+                                ${getPlatformBadgeHTML(game.platform)}
                             </span>
 
                             <span class="absolute top-3 right-3 bg-emerald-500 text-zinc-950 text-xs font-black px-2 py-0.5 rounded-md">
@@ -1040,7 +1136,9 @@
 
                         <div class="flex-1">
                             <div class="flex flex-wrap items-center gap-2 mb-2">
-                                <span class="bg-blue-600 text-white text-xs font-extrabold px-2.5 py-0.5 rounded">${game.platform}</span>
+                                <span class="bg-blue-600 text-white text-xs font-extrabold px-2.5 py-0.5 rounded inline-flex items-center gap-1.5">
+                                    <i class="fa-brands fa-playstation"></i> ${game.platform}
+                                </span>
                                 <span class="bg-zinc-900 border border-zinc-700 text-zinc-300 text-xs font-semibold px-2.5 py-0.5 rounded">${game.category}</span>
                                 <span class="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-2 py-0.5 rounded">${game.discount} OFF</span>
                             </div>
@@ -1172,6 +1270,7 @@
             const itemsContainer = document.getElementById('cart-items');
             const footer = document.getElementById('cart-footer');
             const totalEl = document.getElementById('cart-total');
+            const totalUsdEl = document.getElementById('cart-total-usd');
 
             const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
             const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
@@ -1194,6 +1293,9 @@
 
             footer.classList.remove('hidden');
             totalEl.textContent = formatARS(totalPrice);
+            if (totalUsdEl) {
+                totalUsdEl.textContent = `≈ $${formatUSD(totalPrice)} USD (PayPal / USDT)`;
+            }
 
             itemsContainer.innerHTML = cart.map(item => `
                 <div class="flex items-center gap-3 bg-zinc-900/90 border border-zinc-800 p-3 rounded-2xl">
@@ -1227,10 +1329,30 @@
             }
         }
 
+        function selectPaymentMethod(method) {
+            selectedPaymentMethod = method;
+            const methods = ['transfer', 'paypal', 'binance'];
+            methods.forEach(m => {
+                const tab = document.getElementById(`tab-pay-${m}`);
+                const panel = document.getElementById(`panel-pay-${m}`);
+                if (m === method) {
+                    tab.className = 'pay-tab py-2 px-2 rounded-xl text-xs font-bold flex flex-col items-center justify-center gap-1 bg-blue-600 text-white transition-all shadow-md';
+                    panel.classList.remove('hidden');
+                } else {
+                    tab.className = 'pay-tab py-2 px-2 rounded-xl text-xs font-bold flex flex-col items-center justify-center gap-1 text-zinc-400 hover:text-white transition-all';
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+
         function openTransferModal() {
             if (cart.length === 0) return;
             const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            const usdTotal = formatUSD(total);
             document.getElementById('modal-transfer-total').textContent = formatARS(total);
+            document.getElementById('modal-paypal-total').textContent = `$${usdTotal} USD`;
+            document.getElementById('modal-binance-total').textContent = `${usdTotal} USDT`;
+            selectPaymentMethod('transfer');
             toggleCart();
             const modal = document.getElementById('transfer-modal');
             modal.classList.remove('hidden');
@@ -1259,14 +1381,25 @@
 
         function checkoutWhatsApp() {
             if (cart.length === 0) return;
-            let message = "Hola! Hice una transferencia bancaria para comprar estos juegos en GameVault:%0A%0A";
+            const methodLabels = {
+                transfer: 'Transferencia Bancaria (ARS)',
+                paypal: 'PayPal (USD)',
+                binance: 'Binance / Cripto (USDT)'
+            };
+            let message = `Hola! Realicé el pago vía *${methodLabels[selectedPaymentMethod]}* para comprar estos juegos en GameVault:%0A%0A`;
             let total = 0;
             cart.forEach(item => {
                 const sub = item.price * item.qty;
                 total += sub;
                 message += `• ${item.title} (${item.platform} - ${item.licenseType}) x${item.qty}: ${formatARS(sub)}%0A`;
             });
-            message += `%0A*Total transferido: ${formatARS(total)}*%0AAdjunto el comprobante de transferencia a continuación:`;
+            if (selectedPaymentMethod === 'transfer') {
+                message += `%0A*Total transferido: ${formatARS(total)}*%0AAdjunto el comprobante a continuación:`;
+            } else if (selectedPaymentMethod === 'paypal') {
+                message += `%0A*Total enviado por PayPal: $${formatUSD(total)} USD*%0AAdjunto el comprobante a continuación:`;
+            } else {
+                message += `%0A*Total enviado por Binance: ${formatUSD(total)} USDT*%0AAdjunto el comprobante a continuación:`;
+            }
             
             const phone = "5491100000000";
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
