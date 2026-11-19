@@ -2147,10 +2147,10 @@
             return (arsAmount / USD_RATE).toFixed(2);
         }
 
-        // Tarjeta de juego: estilo GTA exclusivo para títulos de GTA, diseño clásico para el resto (sin "500 entregadas")
+        // Tarjeta de juego: estilo GTA exclusivo solo para GTA VI, diseño clásico para el resto (incluyendo GTA V)
         function createGameCard(game) {
             const safeTitle = game.title.replace(/'/g, "\\'");
-            const isGta = game.id === 'gta6' || game.id === 'gta6-ultimate' || game.title.toLowerCase().includes('grand theft auto');
+            const isGta = game.id === 'gta6' || game.id === 'gta6-ultimate';
 
             if (isGta) {
                 const isUltimate = Boolean(game.editionLabel);
