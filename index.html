@@ -144,7 +144,7 @@
                 <div class="hidden md:flex flex-1 max-w-md mx-4">
                     <div class="relative w-full">
                         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-sm"></i>
-                        <input type="text" id="search-input" placeholder="Buscar GTA VI, Modern Warfare 4, Battlefield..." 
+                        <input type="text" id="search-input" placeholder="Buscar GTA VI, Alan Wake 2, Assassin's Creed, 007..." 
                                class="w-full bg-zinc-900/90 border border-zinc-800 text-sm text-white rounded-xl pl-10 pr-4 py-2 focus:outline-none focus:border-blue-500 transition-colors placeholder:text-zinc-500">
                     </div>
                 </div>
@@ -243,29 +243,7 @@
             </div>
         </section>
 
-        <!-- 3. Franja de Estadísticas / Confianza -->
-        <section class="border-y border-zinc-800/80 py-4 px-1">
-            <div class="grid grid-cols-4 gap-1 text-center">
-                <div>
-                    <div class="text-base font-black text-white tracking-tight">+22.000</div>
-                    <div class="text-[9px] font-bold uppercase tracking-widest text-zinc-400 mt-0.5">ENTREGAS</div>
-                </div>
-                <div>
-                    <div class="text-base font-black text-white tracking-tight">+6</div>
-                    <div class="text-[9px] font-bold uppercase tracking-widest text-zinc-400 mt-0.5">AÑOS</div>
-                </div>
-                <div>
-                    <div class="text-base font-black text-white tracking-tight">−40%</div>
-                    <div class="text-[9px] font-bold uppercase tracking-widest text-zinc-400 mt-0.5">VS PSN</div>
-                </div>
-                <div>
-                    <div class="text-base font-black text-white tracking-tight">12–22h</div>
-                    <div class="text-[9px] font-bold uppercase tracking-widest text-zinc-400 mt-0.5 leading-tight">TODOS LOS DÍAS</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. Tarjeta Hero Destacada en Móvil (Video MP4 / Imagen + Overlay estilo GTA VI) -->
+        <!-- 3. Tarjeta Hero Destacada en Móvil (Video MP4 / Imagen + Overlay estilo GTA VI) -->
         <section id="mobile-hero-card" class="relative w-full h-[335px] rounded-[24px] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 select-none">
             <!-- Imagen de respaldo -->
             <img id="mobile-hero-fallback" 
@@ -390,6 +368,8 @@
                 <button onclick="filterByPlatform('PS4')" data-filter="PS4" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors inline-flex items-center gap-1.5 shrink-0"><i class="fa-brands fa-playstation text-sm"></i> PS4</button>
                 <button onclick="filterByCategory('Deportes')" data-filter="Deportes" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors shrink-0">Deportes</button>
                 <button onclick="filterByCategory('Acción')" data-filter="Acción" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors shrink-0">Acción</button>
+                <button onclick="filterByCategory('Aventura')" data-filter="Aventura" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors shrink-0">Aventura</button>
+                <button onclick="filterByCategory('RPG')" data-filter="RPG" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors shrink-0">RPG</button>
                 <button onclick="filterByCategory('Terror')" data-filter="Terror" class="filter-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-bold px-4 py-2 rounded-xl transition-colors shrink-0">Terror</button>
             </div>
         </div>
@@ -656,7 +636,7 @@
         </div>
     </footer>
 
-    <!-- BOTÓN FLOTANTE DE WHATSAPP (Circular limpio en móvil como la foto, con texto en PC) -->
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
     <a href="https://wa.me/5491100000000?text=Hola%20GameVault!%20Necesito%20atenci%C3%B3n%20y%20asesoramiento%20con%20un%20juego."
        target="_blank"
        rel="noopener noreferrer"
@@ -923,7 +903,7 @@
                     "consola": "ps5",
                     "etiqueta": "PREVENTA",
                     "subtitulo": "Rockstar Games · 2026",
-                    "descripcion": "Regresá al estado de Leonida y explorá las calles bañadas de neón de Vice City en la entrega más grande e inmersiva de la saga Grand Theft Auto."
+                    "descripcion": "Bienvenido a Vice City. Llegó el GTA 6"
                 },
                 {
                     "id": "13ae9009-c2ef-42e0-b702-c5798bd85f17",
@@ -993,6 +973,7 @@
             ]
         };
 
+        // Catálogo con portadas oficiales del CDN de epicodes.com.ar (/cdn/covers/...) + juegos extraídos del JSON
         const gamesData = [
             {
                 id: 'gta6',
@@ -1020,8 +1001,8 @@
                 players: '1 Jugador / Online',
                 trailerId: 'QdBZY2fkU-0',
                 description: 'Regresá al estado de Leonida y explorá las calles bañadas de neón de Vice City en la entrega más grande e inmersiva de la saga Grand Theft Auto.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/4/46/Grand_Theft_Auto_VI.png',
-                fallback: 'https://placehold.co/400x520/1e1b4b/38bdf8?text=GTA+VI+PS5'
+                image: 'https://epicodes.com.ar/cdn/covers/grand-theft-auto-vi-ps5.webp',
+                fallback: 'https://epicodes.com.ar/img/hero-opt/gta6_poster.jpg?v=20260723b'
             },
             {
                 id: 'phantomblade0',
@@ -1049,8 +1030,8 @@
                 players: '1 Jugador',
                 trailerId: '9H8O0n2m2oM',
                 description: 'Encarná a Soul, un asesino de élite al que le quedan 66 días de vida, en un mundo semiabierto oscuro con coreografías de kung fu frenéticas.',
-                image: 'https://placehold.co/400x520/450a0a/fca5a5?text=Phantom+Blade+Zero',
-                fallback: 'https://placehold.co/400x520/450a0a/fca5a5?text=Phantom+Blade+Zero'
+                image: 'https://epicodes.com.ar/cdn/covers/phantom-blade-zero-ps5.webp',
+                fallback: 'https://epicodes.com.ar/media/v/phantom-blade-zero-p1-20261026-00bb38.jpg'
             },
             {
                 id: 'codmw4',
@@ -1078,8 +1059,8 @@
                 players: '1 Jugador / Multijugador Online',
                 trailerId: 'mHDEDDrGYvo',
                 description: 'Campaña cinematográfica de alto impacto, multijugador táctico renovado con mapas clásicos y el modo DMZ en 4K a 120 FPS.',
-                image: 'https://image.api.playstation.com/vulcan/ap/rnd/202308/1722/087f1727d8e1a36b700b6c7172d4423d0d7b8c9d0a1b2c3d.png',
-                fallback: 'https://image.api.playstation.com/vulcan/ap/rnd/202605/1419/39e532d5d5a31d9113c7fa8f3e4c332af9428613efe01037.png'
+                image: 'https://epicodes.com.ar/cdn/covers/call-of-duty-modern-warfare-4-ps5.webp',
+                fallback: 'https://epicodes.com.ar/img/hero-opt/mw4_poster.jpg?v=20260723b'
             },
             {
                 id: 'fc27',
@@ -1107,8 +1088,8 @@
                 players: '1-4 Local / Hasta 22 Online',
                 trailerId: 'pBM2xyco_Kg',
                 description: 'Viví el fútbol con clubes y ligas reales, física renovada, clima dinámico y todos los modos competitivos en PS4 y PS5.',
-                image: 'https://image.api.playstation.com/vulcan/ap/rnd/202407/1814/002081067e1973c68132b003343a6d620f84f84b68c0848a.png',
-                fallback: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWnVeaLmNvY5yaH2JPqWfqd-D8oSc8-O6n92qSD-yHXL88N9kuLiQtO0g&s=10'
+                image: 'https://epicodes.com.ar/cdn/covers/ea-sports-fc-27-ps5.webp',
+                fallback: 'https://epicodes.com.ar/img/hero-opt/fc27_poster.jpg?v=20260723b'
             },
             {
                 id: '007firstlight',
@@ -1117,13 +1098,13 @@
                 platform: 'PS5',
                 category: 'Acción',
                 subgenre: 'SIGILO',
-                discount: '-30%',
-                pricePri: 54900,
-                priceSec: 38900,
+                discount: '-53%',
+                pricePri: 34900,
+                priceSec: 33100,
                 isCheap: false,
                 featured: true,
                 badge: 'ESTRENO',
-                tagline: 'El origen de Bond como agente 00. Sigilo, acción y encanto al servicio del MI6.',
+                tagline: 'Sigilo, acción y encanto al servicio del MI6. El inicio de Bond como agente 00.',
                 videoUrl: 'https://epicodes.com.ar/img/hero-opt/007firstlight.mp4?v=20260723b',
                 videoMobileUrl: 'https://epicodes.com.ar/img/hero-opt/007firstlight_celu.mp4',
                 heroBg: 'https://epicodes.com.ar/img/hero-opt/007firstlight_poster.jpg?v=20260723b',
@@ -1135,9 +1116,9 @@
                 audio: 'Inglés (Subtítulos Español)',
                 players: '1 Jugador',
                 trailerId: '9W3o8yV6dN8',
-                description: 'Descubrí los inicios de James Bond en el programa doble cero con infiltración táctica, gadgets y acción cinematográfica.',
-                image: 'https://placehold.co/400x520/1c1917/fbbf24?text=007+First+Light',
-                fallback: 'https://placehold.co/400x520/1c1917/fbbf24?text=007+First+Light'
+                description: 'Sigilo, acción y encanto al servicio del MI6. El inicio de Bond como agente 00.',
+                image: 'https://epicodes.com.ar/cdn/covers/007-first-light-ps5.webp?v=1786726645318',
+                fallback: 'https://epicodes.com.ar/img/hero-opt/007firstlight_poster.jpg?v=20260723b'
             },
             {
                 id: 'spiderman2',
@@ -1165,9 +1146,412 @@
                 players: '1 Jugador',
                 trailerId: 'nq1M_Wc4FIc',
                 description: 'Peter Parker y Miles Morales regresan en una nueva aventura en la Nueva York de Marvel para enfrentar al simbionte Venom y Kraven el Cazador.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/0/0f/Spider-Man_2_cover.jpg',
-                fallback: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2651280/library_600x900.jpg'
+                image: 'https://epicodes.com.ar/cdn/covers/spiderman-2-ps5.webp',
+                fallback: 'https://epicodes.com.ar/img/hero-opt/spiderman2_poster.jpg?v=20260723b'
             },
+            // --- NUEVOS JUEGOS EXTRAÍDOS DEL JSON OFICIAL ---
+            {
+                id: 'alanwake2',
+                slug: 'alan-wake-2',
+                title: 'Alan Wake 2',
+                platform: 'PS5',
+                category: 'Terror',
+                discount: '-80%',
+                pricePri: 21900,
+                priceSec: 11900,
+                isCheap: false,
+                developer: 'Remedy Entertainment',
+                release: '2023',
+                size: '82 GB',
+                audio: 'Español Latino / Inglés',
+                players: '1 Jugador',
+                trailerId: 'dlQ3FeNu5Yw',
+                description: 'Survival horror narrativo. Dos historias entrelazadas entre realidad y pesadilla.',
+                image: 'https://epicodes.com.ar/cdn/covers/alan-wake-2-ps5.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/alan-wake-2-ps5-md.webp?v=1786728812963'
+            },
+            {
+                id: 'acshadows',
+                slug: 'assassins-creed-shadows',
+                title: "Assassin's Creed Shadows",
+                platform: 'PS5',
+                category: 'RPG',
+                discount: '-68%',
+                pricePri: 27900,
+                priceSec: 22900,
+                isCheap: false,
+                developer: 'Ubisoft',
+                release: '2025',
+                size: '105 GB',
+                audio: 'Español Latino / Inglés',
+                players: '1 Jugador',
+                trailerId: 'vovkzbtYBC8',
+                description: 'Japón feudal con dos protagonistas: una shinobi ágil y un samurái pesado.',
+                image: 'https://epicodes.com.ar/cdn/covers/assassins-creed-shadows-ps5.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/assassins-creed-shadows-ps5-md.webp?v=1786728828864'
+            },
+            {
+                id: 'acblackflagresynced',
+                slug: 'assassin-s-creed-black-flag-resynced',
+                title: "Assassin's Creed Black Flag Resynced",
+                platform: 'PS5',
+                category: 'Acción',
+                discount: '-51%',
+                pricePri: 44900,
+                priceSec: 29900,
+                isCheap: false,
+                developer: 'Ubisoft',
+                release: '2026',
+                size: '90 GB',
+                audio: 'Español Latino / Inglés',
+                players: '1 Jugador',
+                trailerId: 'OwVe4ZNeQZk',
+                description: 'El remake del icónico Black Flag. Piratas, mundo abierto y acción renovada.',
+                image: 'https://epicodes.com.ar/cdn/covers/assassin-s-creed-black-flag-resynced-ps5.webp?v=1786726645816',
+                fallback: 'https://epicodes.com.ar/cdn/covers/assassin-s-creed-black-flag-resynced-ps5-md.webp?v=1786728821269'
+            },
+            {
+                id: 'acmirage',
+                slug: 'assassins-creed-mirage',
+                title: "Assassin's Creed Mirage",
+                platform: 'PS5',
+                category: 'Aventura',
+                discount: '-83%',
+                pricePri: 10900,
+                priceSec: 7900,
+                isCheap: true,
+                offerHighlight: true,
+                developer: 'Ubisoft',
+                release: '2023',
+                size: '42 GB',
+                audio: 'Español Latino / Inglés',
+                players: '1 Jugador',
+                trailerId: 'x55lAlFtXmw',
+                description: 'Vuelta al sigilo clásico en Bagdad. Parkour, asesinatos y ambiente medieval.',
+                image: 'https://epicodes.com.ar/cdn/covers/assassins-creed-mirage-ps5.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/assassins-creed-mirage-ps5-md.webp?v=1786728825164'
+            },
+            {
+                id: 'acvalhalla',
+                slug: 'assassins-creed-valhalla',
+                title: "Assassin's Creed Valhalla",
+                platform: 'PS5',
+                category: 'RPG',
+                discount: '-88%',
+                pricePri: 13900,
+                priceSec: 6900,
+                isCheap: true,
+                developer: 'Ubisoft',
+                release: '2020',
+                size: '98 GB',
+                audio: 'Español Latino / Inglés',
+                players: '1 Jugador',
+                trailerId: 'ssrNcwxALS4',
+                description: 'RPG vikingo en Inglaterra medieval. Saqueos, asentamientos y mitología nórdica.',
+                image: 'https://epicodes.com.ar/cdn/covers/assassins-creed-valhalla-ps5.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/assassins-creed-valhalla-ps5-md.webp?v=1786728831670'
+            },
+            {
+                id: 'acodyssey',
+                slug: 'assassins-creed-odyssey',
+                title: "Assassin's Creed Odyssey",
+                platform: 'PS4',
+                category: 'RPG',
+                discount: '-80%',
+                pricePri: 14900,
+                priceSec: 10900,
+                isCheap: false,
+                developer: 'Ubisoft',
+                release: '2018',
+                size: '78 GB',
+                audio: 'Español / Inglés',
+                players: '1 Jugador',
+                trailerId: 's_SJZSAtLBA',
+                description: 'RPG en la Antigua Grecia. Mundo abierto enorme, decisiones y combate épico.',
+                image: 'https://epicodes.com.ar/cdn/covers/assassins-creed-odyssey-ps4.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/assassins-creed-odyssey-ps4-md.webp?v=1786728825854'
+            },
+            {
+                id: 'acorigins',
+                slug: 'assassins-creed-origins',
+                title: "Assassin's Creed Origins",
+                platform: 'PS4',
+                category: 'RPG',
+                discount: '-91%',
+                pricePri: 10900,
+                priceSec: 5900,
+                isCheap: true,
+                developer: 'Ubisoft',
+                release: '2017',
+                size: '65 GB',
+                audio: 'Español / Inglés',
+                players: '1 Jugador',
+                trailerId: 'cUuKIpCM2o0',
+                description: 'RPG en el Antiguo Egipto. Bayek explora un mundo abierto lleno de secretos.',
+                image: 'https://epicodes.com.ar/cdn/covers/assassins-creed-origins-ps4.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/assassins-creed-origins-ps4-md.webp?v=1786728827413'
+            },
+            {
+                id: 'acunity',
+                slug: 'assassin-s-creed-unity',
+                title: "Assassin's Creed Unity",
+                platform: 'PS4',
+                category: 'Acción',
+                discount: '-76%',
+                pricePri: 9200,
+                priceSec: 6700,
+                isCheap: true,
+                developer: 'Ubisoft',
+                release: '2014',
+                size: '46 GB',
+                audio: 'Español / Inglés',
+                players: '1-4 Cooperativo',
+                trailerId: 'xzCEdSKMkdU',
+                description: 'Acción y aventura en mundo abierto. Parkour, sigilo y una París revolucionaria.',
+                image: 'https://epicodes.com.ar/cdn/covers/assassin-s-creed-unity-ps4.webp?v=1786726646103',
+                fallback: 'https://epicodes.com.ar/cdn/covers/assassin-s-creed-unity-ps4-md.webp?v=1786728821608'
+            },
+            {
+                id: 'aceziocollection',
+                slug: 'assassin-s-creed-the-ezio-collection',
+                title: 'Assassin’s Creed The Ezio Collection',
+                platform: 'PS4',
+                category: 'Acción',
+                discount: '-78%',
+                pricePri: 11400,
+                priceSec: 8000,
+                isCheap: true,
+                developer: 'Ubisoft',
+                release: '2016',
+                size: '48 GB',
+                audio: 'Español / Inglés',
+                players: '1 Jugador',
+                trailerId: 'm4nE7M8K_sA',
+                description: "La saga completa de Ezio: Assassin's Creed II, Brotherhood y Revelations remasterizados.",
+                image: 'https://epicodes.com.ar/cdn/covers/assassin-s-creed-the-ezio-collection-ps4.webp?v=1793045674258',
+                fallback: 'https://epicodes.com.ar/cdn/covers/assassin-s-creed-the-ezio-collection-ps4-md.webp?v=1793045674547'
+            },
+            {
+                id: 'actriplepack',
+                slug: 'assassins-creed-triple-pack-black-flag-unity-syndicate',
+                title: 'Assassins Creed Triple Pack: Black Flag, Unity, Syndicate',
+                platform: 'PS4',
+                category: 'Aventura',
+                discount: '-86%',
+                pricePri: 19900,
+                priceSec: 11900,
+                isCheap: false,
+                developer: 'Ubisoft',
+                release: '2016',
+                size: '115 GB',
+                audio: 'Español / Inglés',
+                players: '1 Jugador',
+                trailerId: 'xzCEdSKMkdU',
+                description: 'Tres entregas clásicas: piratas, Revolución Francesa y Londres victoriano.',
+                image: 'https://epicodes.com.ar/cdn/covers/assassins-creed-triple-pack-black-flag-unity-syndicate-ps4.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/assassins-creed-triple-pack-black-flag-unity-syndicate-ps4-md.webp?v=1786728829590'
+            },
+            {
+                id: 'aplaguetaleinnocence',
+                slug: 'a-plague-tale-innocence',
+                title: 'A Plague Tale: Innocence',
+                platform: 'PS5',
+                category: 'Aventura',
+                discount: '-46%',
+                pricePri: 24900,
+                priceSec: 19900,
+                isCheap: false,
+                developer: 'Asobo Studio',
+                release: '2021',
+                size: '45 GB',
+                audio: 'Español / Inglés',
+                players: '1 Jugador',
+                trailerId: 'H4FOb16N_88',
+                description: 'Sigilo y acción en una Francia medieval. Tensión, alquimia y ratas.',
+                image: 'https://epicodes.com.ar/cdn/covers/a-plague-tale-innocence-ps5.webp?v=1786726645559',
+                fallback: 'https://epicodes.com.ar/cdn/covers/a-plague-tale-innocence-ps5-md.webp?v=1786728809499'
+            },
+            {
+                id: 'aplaguetalerequiem',
+                slug: 'a-plague-tale-requiem',
+                title: 'A Plague Tale: Requiem',
+                platform: 'PS5',
+                category: 'Aventura',
+                discount: '-64%',
+                pricePri: 27400,
+                priceSec: 21900,
+                isCheap: false,
+                developer: 'Asobo Studio',
+                release: '2022',
+                size: '54 GB',
+                audio: 'Español / Inglés',
+                players: '1 Jugador',
+                trailerId: 'gj_aHCpZl4k',
+                description: 'Aventura narrativa con Amicia y Hugo huyendo de la peste y de las ratas.',
+                image: 'https://epicodes.com.ar/cdn/covers/a-plague-tale-requiem-ps5.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/a-plague-tale-requiem-ps5-md.webp?v=1786728810151'
+            },
+            {
+                id: 'aquietplace',
+                slug: 'a-quiet-place-the-road-ahead',
+                title: 'A Quiet Place: The Road Ahead',
+                platform: 'PS5',
+                category: 'Terror',
+                discount: '-71%',
+                pricePri: 12900,
+                priceSec: 8900,
+                isCheap: true,
+                developer: 'Stormind Games',
+                release: '2024',
+                size: '38 GB',
+                audio: 'Español / Inglés',
+                players: '1 Jugador',
+                trailerId: 'b7iH4H_hN0Q',
+                description: 'Terror en el mundo de Un lugar en silencio: cualquier ruido te delata. Sigilo y supervivencia contra las criaturas.',
+                image: 'https://epicodes.com.ar/cdn/covers/a-quiet-place-the-road-ahead-ps5.webp?v=1793045643262',
+                fallback: 'https://epicodes.com.ar/cdn/covers/a-quiet-place-the-road-ahead-ps5-md.webp?v=1793045643577'
+            },
+            {
+                id: 'awayout',
+                slug: 'a-way-out',
+                title: 'A Way Out',
+                platform: 'PS4',
+                category: 'Aventura',
+                discount: '-79%',
+                pricePri: 7900,
+                priceSec: 5900,
+                isCheap: true,
+                developer: 'Hazelight Studios',
+                release: '2018',
+                size: '22 GB',
+                audio: 'Inglés (Subtítulos Español)',
+                players: '2 Cooperativo Local / Online',
+                trailerId: 'yGZGSdgJVPM',
+                description: 'Coop obligatorio en pantalla partida. Dos presos planean su fuga y huyen juntos.',
+                image: 'https://epicodes.com.ar/cdn/covers/a-way-out-ps4.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/a-way-out-ps4-md.webp?v=1786728810784'
+            },
+            {
+                id: 'alienisolation',
+                slug: 'alien-isolation',
+                title: 'Alien Isolation',
+                platform: 'PS4',
+                category: 'Terror',
+                discount: '-75%',
+                pricePri: 9900,
+                priceSec: 6900,
+                isCheap: true,
+                developer: 'Creative Assembly',
+                release: '2014',
+                size: '24 GB',
+                audio: 'Español / Inglés',
+                players: '1 Jugador',
+                trailerId: '7h0cgmvIrZw',
+                description: 'Sigilo y terror en una estación espacial. Un xenomorfo te caza sin descanso.',
+                image: 'https://epicodes.com.ar/cdn/covers/alien-isolation-ps4.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/alien-isolation-ps4-md.webp?v=1786728813672'
+            },
+            {
+                id: 'amongus',
+                slug: 'among-us',
+                title: 'Among Us',
+                platform: 'PS5',
+                category: 'Aventura',
+                discount: '-44%',
+                pricePri: 4900,
+                priceSec: 3600,
+                isCheap: true,
+                developer: 'Innersloth',
+                release: '2021',
+                size: '2 GB',
+                audio: 'Español / Inglés',
+                players: '4-15 Online',
+                trailerId: 'CermGp8bwFE',
+                description: 'Party online de impostores y tripulantes. Mentí, votá y descubrí al traidor.',
+                image: 'https://epicodes.com.ar/cdn/covers/among-us-ps5.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/among-us-ps5-md.webp?v=1786728817270'
+            },
+            {
+                id: 'arcraiders',
+                slug: 'arc-raiders',
+                title: 'Arc Raiders',
+                platform: 'PS5',
+                category: 'Acción',
+                discount: '-63%',
+                pricePri: 18900,
+                priceSec: 14900,
+                isCheap: false,
+                developer: 'Embark Studios',
+                release: '2025',
+                size: '45 GB',
+                audio: 'Inglés (Subtítulos Español)',
+                players: '1-3 Cooperativo Online',
+                trailerId: 'IpeJjQDXNAE',
+                description: 'Shooter PvPvE de extracción. Loot, robots gigantes y partidas tensas.',
+                image: 'https://epicodes.com.ar/cdn/covers/arc-raiders-ps5.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/arc-raiders-ps5-md.webp?v=1786728818006'
+            },
+            {
+                id: 'arkascended',
+                slug: 'ark-survival-ascended',
+                title: 'ARK Survival Ascended',
+                platform: 'PS5',
+                category: 'Aventura',
+                discount: '-80%',
+                pricePri: 11900,
+                priceSec: 8900,
+                isCheap: true,
+                developer: 'Studio Wildcard',
+                release: '2023',
+                size: '85 GB',
+                audio: 'Español / Inglés',
+                players: '1-70 Online',
+                trailerId: 'FW9vsrPWujI',
+                description: 'Supervivencia con dinosaurios en mundo abierto. Domesticá, crafteá y sobreviví.',
+                image: 'https://epicodes.com.ar/cdn/covers/ark-survival-ascended-ps5.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/ark-survival-ascended-ps5-md.webp?v=1786728818769'
+            },
+            {
+                id: 'assettocorsa',
+                slug: 'assetto-corsa',
+                title: 'Assetto Corsa',
+                platform: 'PS5',
+                category: 'Deportes',
+                discount: '-64%',
+                pricePri: 11900,
+                priceSec: 9900,
+                isCheap: true,
+                developer: 'Kunos Simulazioni',
+                release: '2016',
+                size: '20 GB',
+                audio: 'Español / Inglés',
+                players: '1 Jugador / Online',
+                trailerId: 'T3015_k6B_M',
+                description: 'Simulador de carreras realista. Física precisa y autos icónicos en circuito.',
+                image: 'https://epicodes.com.ar/cdn/covers/assetto-corsa-ps5.webp?v=1778731812153',
+                fallback: 'https://epicodes.com.ar/cdn/covers/assetto-corsa-ps5-md.webp?v=1786728835158'
+            },
+            {
+                id: 'acecombat8',
+                slug: 'ace-combat-8-wings-of-theve',
+                title: 'ACE COMBAT 8: WINGS OF THEVE',
+                platform: 'PS5',
+                category: 'Acción',
+                discount: '-34%',
+                pricePri: 54900,
+                priceSec: 46900,
+                isCheap: false,
+                developer: 'Bandai Namco',
+                release: '2026',
+                size: '62 GB',
+                audio: 'Inglés (Subtítulos Español)',
+                players: '1 Jugador / Online',
+                trailerId: '7_G_M_2c3_w',
+                description: 'Combates aéreos con aviones de guerra. Pilotá entre las nubes y superá misiones intensas.',
+                image: 'https://epicodes.com.ar/cdn/covers/ace-combat-8-wings-of-theve-ps5.webp?v=1793457525019',
+                fallback: 'https://epicodes.com.ar/cdn/covers/ace-combat-8-wings-of-theve-ps5-md.webp?v=1793457525600'
+            },
+            // --- JUEGOS EXISTENTES CON PORTADAS ACTUALIZADAS A EPICODES CDN ---
             {
                 id: 'hogwarts',
                 slug: 'hogwarts-legacy',
@@ -1186,8 +1570,8 @@
                 players: '1 Jugador',
                 trailerId: '1O6Qstncpnc',
                 description: 'RPG de acción de mundo abierto ambientado en el mundo mágico del siglo XIX. Explorá Hogwarts, prepará pociones y dominá hechizos.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/7/7c/Hogwarts-Legacy-cover.jpg',
-                fallback: 'https://cdn.akamai.steamstatic.com/steam/apps/990080/library_600x900.jpg'
+                image: 'https://epicodes.com.ar/cdn/covers/hogwarts-legacy-ps5.webp',
+                fallback: 'https://epicodes.com.ar/media/v/hogwarts-legacy-p3-20261024-a50a16.jpg'
             },
             {
                 id: 'nfspayback',
@@ -1207,8 +1591,8 @@
                 players: '1 Jugador / Online',
                 trailerId: 'kc-OcOduEx0',
                 description: 'Ambientado en el submundo de Fortune Valley, vos y tu banda se reúnen para vengarse de La Casa, un cartel nefasto que controla la ciudad.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/e/e5/Need_for_Speed_Payback_cover_art.jpg',
-                fallback: 'https://placehold.co/400x520/7c2d12/fdba74?text=NFS+Payback'
+                image: 'https://epicodes.com.ar/cdn/covers/need-for-speed-payback-ps4.webp',
+                fallback: 'https://epicodes.com.ar/media/v/need-for-speed-payback-p1-20261026-fdc7b5.jpg'
             },
             {
                 id: 'dyinglight',
@@ -1228,8 +1612,8 @@
                 players: '1-4 Cooperativo',
                 trailerId: '9W3o8yV6dN8',
                 description: 'Juego de acción y supervivencia en primera persona ambientado en un mundo abierto postapocalíptico infestado de zombis.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/5/51/Dying_Light_cover.jpg',
-                fallback: 'https://placehold.co/400x520/1e293b/94a3b8?text=Dying+Light'
+                image: 'https://epicodes.com.ar/cdn/covers/dying-light-ps4.webp',
+                fallback: 'https://epicodes.com.ar/media/v/dying-light-p1-20261026-84a8ca.jpg'
             },
             {
                 id: 'rdr2',
@@ -1249,8 +1633,8 @@
                 players: '1 Jugador / Red Dead Online',
                 trailerId: 'eaW0tYpxyp0',
                 description: 'Estados Unidos, 1899. Arthur Morgan y la banda de Van der Linde huyen por todo el corazón de América en una historia épica de lealtad y supervivencia.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg',
-                fallback: 'https://placehold.co/400x520/7f1d1d/fca5a5?text=Red+Dead+2'
+                image: 'https://epicodes.com.ar/cdn/covers/red-dead-redemption-2-ps4.webp',
+                fallback: 'https://epicodes.com.ar/media/v/red-dead-redemption-2-p4-20261024-019d48.jpg'
             },
             {
                 id: 'gtav',
@@ -1269,8 +1653,8 @@
                 players: '1 Jugador / Online 30',
                 trailerId: 'QkkoHAzjnUs',
                 description: 'Experimentá el éxito de ventas mundial con gráficos 4K a 60 FPS, tiempos de carga ultrarrápidos y acceso completo a GTA Online.',
-                image: 'https://image.api.playstation.com/vulcan/ap/rnd/202202/2816/K6Yw8929354551435154.png',
-                fallback: 'https://cdn.akamai.steamstatic.com/steam/apps/271590/library_600x900.jpg'
+                image: 'https://epicodes.com.ar/cdn/covers/grand-theft-auto-v-ps5.webp',
+                fallback: 'https://epicodes.com.ar/media/v/grand-theft-auto-v-p3-20261024-eb88a8.jpg'
             },
             {
                 id: 'gowr',
@@ -1289,8 +1673,8 @@
                 players: '1 Jugador',
                 trailerId: 'EE-4GvjKcfs',
                 description: 'Kratos y Atreus deben viajar a cada uno de los Nueve Reinos en busca de respuestas mientras las fuerzas asgardianas se preparan para el fin del mundo.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/e/ee/God_of_War_Ragnar%C3%B6k_cover.jpg',
-                fallback: 'https://placehold.co/400x520/1e3a8a/93c5fd?text=God+of+War+Ragnarok'
+                image: 'https://epicodes.com.ar/cdn/covers/god-of-war-ragnarok-ps5.webp',
+                fallback: 'https://epicodes.com.ar/media/v/god-of-war-ragnarok-p3-20261024-6e40de.jpg'
             },
             {
                 id: 'tlou1',
@@ -1309,8 +1693,8 @@
                 players: '1 Jugador',
                 trailerId: 'WxjeV10H1F0',
                 description: 'Reviví el emotivo viaje de Joel y Ellie reconstruido desde cero para PlayStation 5 con fidelidad visual total y soporte DualSense.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/8/86/The_Last_of_Us_Part_I_cover.jpg',
-                fallback: 'https://placehold.co/400x520/27272a/a1a1aa?text=The+Last+Of+Us+Part+I'
+                image: 'https://epicodes.com.ar/cdn/covers/the-last-of-us-part-i-ps5.webp',
+                fallback: 'https://epicodes.com.ar/media/v/the-last-of-us-part-i-p3-20261024-abfa20.jpg'
             },
             {
                 id: 'mk11u',
@@ -1330,8 +1714,8 @@
                 players: '1-2 Local / Online',
                 trailerId: '7zwQPJmg-Kg',
                 description: 'La experiencia definitiva de MK11: incluye el juego base, la expansión Aftermath y todos los luchadores invitados como Rambo, Terminator y Spawn.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/7/7e/Mortal_Kombat_11_cover_art.png',
-                fallback: 'https://placehold.co/400x520/451a03/fbbf24?text=MK11+Ultimate'
+                image: 'https://epicodes.com.ar/cdn/covers/mortal-kombat-11-ps5.webp',
+                fallback: 'https://epicodes.com.ar/media/v/mortal-kombat-11-ultimate-p3-20261024-458d66.jpg'
             },
             {
                 id: 're4',
@@ -1350,8 +1734,8 @@
                 players: '1 Jugador',
                 trailerId: 'j5Xv2lM9wes',
                 description: 'Seis años después de Raccoon City, el agente Leon S. Kennedy es enviado a rescatar a la hija del presidente en un pueblo europeo aislado.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/d/df/Resident_Evil_4_remake_cover_art.jpg',
-                fallback: 'https://placehold.co/400x520/3f1d2e/f43f5e?text=Resident+Evil+4'
+                image: 'https://epicodes.com.ar/cdn/covers/resident-evil-4-ps5.webp',
+                fallback: 'https://epicodes.com.ar/media/v/resident-evil-4-p3-20261024-39a0f6.jpg'
             },
             {
                 id: 're2',
@@ -1370,8 +1754,8 @@
                 players: '1 Jugador',
                 trailerId: 'u3wS-Q2KBpk',
                 description: 'Un virus mortal envuelve a los habitantes de Raccoon City. Sobreviví al apocalipsis zombi jugando las campañas de Leon Kennedy y Claire Redfield.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/f/fd/Resident_Evil_2_Remake.jpg',
-                fallback: 'https://placehold.co/400x520/18181b/ef4444?text=Resident+Evil+2'
+                image: 'https://epicodes.com.ar/cdn/covers/resident-evil-2-ps4.webp',
+                fallback: 'https://epicodes.com.ar/media/v/resident-evil-2-p1-20261026-a9db8c.jpg'
             },
             {
                 id: 'nfsheat',
@@ -1390,8 +1774,8 @@
                 players: '1 Jugador / Online',
                 trailerId: '9ewiJJe_nYI',
                 description: 'Competí de día en eventos autorizados de Palm City y arriesgalo todo de noche en carreras callejeras ilegales escapando de la policía.',
-                image: 'https://upload.wikimedia.org/wikipedia/en/7/7f/Cover_Art_of_Need_for_Speed_Heat.png',
-                fallback: 'https://placehold.co/400x520/701a75/f0abfc?text=NFS+Heat'
+                image: 'https://epicodes.com.ar/cdn/covers/need-for-speed-heat-ps4.webp',
+                fallback: 'https://epicodes.com.ar/media/v/need-for-speed-heat-p3-20261024-c8af79.jpg'
             }
         ];
 
@@ -1448,12 +1832,12 @@
             }
         }
 
-        // Renderizar la tira de ofertas activas en móvil (idéntica a la imagen)
+        // Renderizar la tira de ofertas activas en móvil
         function renderMobileOffersStrip() {
             const strip = document.getElementById('mobile-offers-strip');
             if (!strip) return;
 
-            const offerOrder = ['dyinglight', 'hogwarts', 'nfspayback', 'rdr2', 'mk11u', 're4'];
+            const offerOrder = ['dyinglight', 'hogwarts', 'nfspayback', 'rdr2', 'mk11u', 'acmirage'];
             const offerGames = offerOrder
                 .map(id => gamesData.find(g => g.id === id))
                 .filter(Boolean);
@@ -1487,7 +1871,7 @@
             `).join('');
         }
 
-        // Renderizar la tarjeta Hero destacada de móvil (idéntica a GTA VI en la captura)
+        // Renderizar la tarjeta Hero destacada de móvil
         function renderMobileHeroCard(game, media) {
             const fallbackImg = document.getElementById('mobile-hero-fallback');
             const videoPlayer = document.getElementById('mobile-hero-video');
@@ -1571,7 +1955,7 @@
             // Actualizar tarjeta móvil
             renderMobileHeroCard(game, media);
 
-            // Actualizar hero de escritorio (sin cambios para PC)
+            // Actualizar hero de escritorio
             const fallbackImg = document.getElementById('hero-fallback-img');
             const videoPlayer = document.getElementById('hero-video-player');
 
@@ -1771,7 +2155,7 @@
                     </div>
 
                     <div class="px-3 pb-3 sm:px-4 sm:pb-4 space-y-1.5 sm:space-y-2">
-                        <button onclick="addToCart('${game.id}-sec', '${safeTitle}', '${game.platform}', 'Secundaria', ${game.priceSec}, '${game.fallback}')" 
+                        <button onclick="addToCart('${game.id}-sec', '${safeTitle}', '${game.platform}', 'Secundaria', ${game.priceSec}, '${game.image}')" 
                                 class="w-full flex items-center justify-between bg-zinc-900 hover:bg-blue-600/20 border border-zinc-800 hover:border-blue-500/60 px-2.5 py-2 sm:px-3 sm:py-2.5 rounded-xl transition-all group">
                             <div class="text-left min-w-0">
                                 <span class="block text-[9px] sm:text-[10px] font-bold uppercase text-cyan-400">Secundaria</span>
@@ -1783,7 +2167,7 @@
                             </div>
                         </button>
 
-                        <button onclick="addToCart('${game.id}-pri', '${safeTitle}', '${game.platform}', 'Primaria', ${game.pricePri}, '${game.fallback}')" 
+                        <button onclick="addToCart('${game.id}-pri', '${safeTitle}', '${game.platform}', 'Primaria', ${game.pricePri}, '${game.image}')" 
                                 class="w-full flex items-center justify-between bg-zinc-950 hover:bg-zinc-900 border border-zinc-800/80 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl transition-all group">
                             <div class="text-left min-w-0">
                                 <span class="block text-[9px] sm:text-[10px] font-bold uppercase text-blue-400">Primaria</span>
@@ -1814,7 +2198,7 @@
             const videoSection = isLocalFile ? `
                 <div class="w-full aspect-video bg-zinc-900 border-b border-zinc-800 relative flex flex-col items-center justify-center p-6 text-center overflow-hidden">
                     <img src="https://i.ytimg.com/vi/${game.trailerId}/maxresdefault.jpg"
-                         onerror="this.src='https://i.ytimg.com/vi/${game.trailerId}/hqdefault.jpg'"
+                         onerror="this.src='${game.fallback}'"
                          alt="Vista previa tráiler ${game.title}"
                          class="absolute inset-0 w-full h-full object-cover opacity-35">
                     <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-black/40"></div>
@@ -1889,7 +2273,7 @@
                     </div>
 
                     <div class="grid sm:grid-cols-2 gap-3">
-                        <button onclick="addToCart('${game.id}-sec', '${safeTitle}', '${game.platform}', 'Secundaria', ${game.priceSec}, '${game.fallback}'); closeGameModal();"
+                        <button onclick="addToCart('${game.id}-sec', '${safeTitle}', '${game.platform}', 'Secundaria', ${game.priceSec}, '${game.image}'); closeGameModal();"
                                 class="flex items-center justify-between bg-zinc-900 hover:bg-blue-600/20 border border-zinc-700 hover:border-blue-500 px-4 py-3.5 rounded-2xl transition-all">
                             <div class="text-left">
                                 <span class="block text-xs font-extrabold uppercase text-cyan-400">Cuenta Secundaria</span>
@@ -1898,7 +2282,7 @@
                             <span class="text-lg font-black text-white">${formatARS(game.priceSec)}</span>
                         </button>
 
-                        <button onclick="addToCart('${game.id}-pri', '${safeTitle}', '${game.platform}', 'Primaria', ${game.pricePri}, '${game.fallback}'); closeGameModal();"
+                        <button onclick="addToCart('${game.id}-pri', '${safeTitle}', '${game.platform}', 'Primaria', ${game.pricePri}, '${game.image}'); closeGameModal();"
                                 class="flex items-center justify-between bg-blue-600 hover:bg-blue-500 text-white px-4 py-3.5 rounded-2xl shadow-lg shadow-blue-600/25 transition-all">
                             <div class="text-left">
                                 <span class="block text-xs font-extrabold uppercase text-blue-100">Cuenta Primaria</span>
