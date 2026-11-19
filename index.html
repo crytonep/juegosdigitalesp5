@@ -785,6 +785,29 @@
                 fallback: 'https://store-images.s-microsoft.com/image/apps.65490.14559138935406168.e7f01a08-ebf9-41d8-88ba-39fb1a148711.c65ba007-7378-497e-b934-101230f24e82'
             },
             {
+                id: 'battlefield6',
+                title: 'Battlefield: Total War',
+                platform: 'PS5',
+                category: 'Acción',
+                discount: '-40%',
+                pricePri: 59900,
+                priceSec: 31900,
+                isCheap: false,
+                featured: true,
+                badge: 'GUERRA TOTAL · 128 JUGADORES',
+                tagline: 'Destrucción dinámica a escala masiva.',
+                heroBg: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=1920&q=80',
+                developer: 'DICE / Electronic Arts',
+                release: '2026',
+                size: '110 GB',
+                audio: 'Español Latino / Inglés',
+                players: 'Multijugador Online hasta 128',
+                trailerId: 'ASzOzrB-a9E',
+                description: 'Combate moderno con vehículos blindados, cazas supersónicos, escuadrones tácticos y entornos completamente destructibles de nueva generación.',
+                image: 'https://upload.wikimedia.org/wikipedia/en/e/ec/Battlefield_2042_cover_art.jpg',
+                fallback: 'https://placehold.co/400x520/0f172a/38bdf8?text=Battlefield+PS5'
+            },
+            {
                 id: 'fc27',
                 title: 'EA SPORTS FC 27',
                 platform: 'PS5',
@@ -1094,10 +1117,12 @@
                         <span class="absolute top-3 right-3 z-10 bg-emerald-500 text-zinc-950 text-xs font-black px-2.5 py-1 rounded-full">
                             ${game.discount}
                         </span>
-                        <img src="${game.image}" 
-                             onerror="this.onerror=null; this.src='${game.fallback}'"
-                             alt="${game.title}" 
-                             class="w-full h-[360px] object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="relative w-full aspect-[4/5] bg-zinc-950 overflow-hidden">
+                            <img src="${game.image}" 
+                                 onerror="this.onerror=null; this.src='${game.fallback}'"
+                                 alt="${game.title}" 
+                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                        </div>
                         <div class="p-5 bg-gradient-to-t from-zinc-950 via-zinc-950/95 to-zinc-900">
                             <div class="flex justify-between items-center mb-1.5">
                                 <span class="text-xs font-semibold text-zinc-400">${game.category} · ${game.size}</span>
@@ -1200,12 +1225,12 @@
             return `
                 <article class="bg-cardBg border border-cardBorder rounded-2xl overflow-hidden card-hover flex flex-col justify-between">
                     <div>
-                        <div onclick="openGameModal('${game.id}')" class="relative h-60 bg-zinc-900 overflow-hidden cursor-pointer group">
+                        <div onclick="openGameModal('${game.id}')" class="relative aspect-[3/4] w-full bg-zinc-950 overflow-hidden cursor-pointer group">
                             <img src="${game.image}" 
                                  onerror="this.onerror=null; this.src='${game.fallback}'"
                                  alt="${game.title}" 
-                                 class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
-                            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-black/30"></div>
+                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-transparent to-black/25"></div>
                             
                             <span class="absolute top-3 left-3 bg-black/85 backdrop-blur-md border border-white/15 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md">
                                 ${getPlatformBadgeHTML(game.platform)}
