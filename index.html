@@ -73,8 +73,18 @@
         }
         .card-hover:hover {
             transform: translateY(-4px);
-            border-color: #3b82f6;
-            box-shadow: 0 12px 30px -10px rgba(37, 99, 235, 0.3);
+            border-color: #d946ef;
+            box-shadow: 0 12px 32px -8px rgba(217, 70, 239, 0.45), 0 0 18px rgba(236, 72, 153, 0.25);
+        }
+        /* Estilo Vice City / GTA VI para tarjetas */
+        .gta-card-glow {
+            background-color: #0b0b0e;
+            border: 1.5px solid rgba(217, 70, 239, 0.55);
+            box-shadow: 0 0 22px -6px rgba(192, 38, 211, 0.38), inset 0 0 12px rgba(236, 72, 153, 0.08);
+        }
+        .gta-card-glow:hover {
+            border-color: #f472b6;
+            box-shadow: 0 14px 34px -6px rgba(236, 72, 153, 0.55), 0 0 24px rgba(168, 85, 247, 0.4);
         }
         .glass-nav {
             background: rgba(9, 9, 11, 0.88);
@@ -976,15 +986,46 @@
         // Catálogo con portadas oficiales del CDN de epicodes.com.ar (/cdn/covers/...) + juegos extraídos del JSON
         const gamesData = [
             {
+                id: 'gta6-ultimate',
+                slug: 'grand-theft-auto-vi-ultimate',
+                title: 'Grand Theft Auto VI: Ultimate Edition',
+                platform: 'PS5',
+                category: 'ACCIÓN',
+                subgenre: 'MUNDO ABIERTO · ULTIMATE',
+                deliveredCount: '+500 ENTREGADAS',
+                editionLabel: 'U L T I M A T E   E D I T I O N',
+                discount: '-24%',
+                pricePri: 129900,
+                priceSec: 59900,
+                oldPriceSec: 79000,
+                isCheap: false,
+                featured: false,
+                badge: 'ULTIMATE',
+                tagline: 'Incluye contenido extra exclusivo de Vice City, vehículos y bonificaciones online.',
+                videoUrl: 'https://epicodes.com.ar/img/hero-opt/gta6.mp4?v=20260723b',
+                videoMobileUrl: 'https://epicodes.com.ar/img/hero-opt/gta6_celu.mp4',
+                heroBg: 'https://epicodes.com.ar/img/hero-opt/gta6_poster.jpg?v=20260723b',
+                developer: 'Rockstar Games',
+                release: '2026',
+                size: '155 GB',
+                audio: 'Inglés (Subtítulos Español)',
+                players: '1 Jugador / Online',
+                trailerId: 'QdBZY2fkU-0',
+                description: 'La edición definitiva de Grand Theft Auto VI en Vice City. Incluye el juego base completo, paquetes de inicio en GTA Online, atuendos exclusivos y bonificaciones especiales.',
+                image: 'https://epicodes.com.ar/cdn/covers/grand-theft-auto-vi-ps5.webp',
+                fallback: 'https://epicodes.com.ar/img/hero-opt/gta6_poster.jpg?v=20260723b'
+            },
+            {
                 id: 'gta6',
                 slug: 'grand-theft-auto-vi',
                 title: 'Grand Theft Auto VI',
                 platform: 'PS5',
-                category: 'Acción',
+                category: 'ACCIÓN',
                 subgenre: 'MUNDO ABIERTO',
-                discount: '-20%',
-                pricePri: 85900,
-                priceSec: 49900,
+                deliveredCount: '+500 ENTREGADAS',
+                discount: '',
+                pricePri: 89900,
+                priceSec: 51900,
                 isCheap: false,
                 featured: true,
                 badge: 'PREVENTA',
@@ -2106,9 +2147,81 @@
             return (arsAmount / USD_RATE).toFixed(2);
         }
 
-        // Tarjeta de juego del catálogo (sin etiqueta PS5/PS4 sobre la portada)
+        // Tarjeta de juego: estilo GTA exclusivo para títulos de GTA, diseño clásico para el resto (sin "500 entregadas")
         function createGameCard(game) {
             const safeTitle = game.title.replace(/'/g, "\\'");
+            const isGta = game.id === 'gta6' || game.id === 'gta6-ultimate' || game.title.toLowerCase().includes('grand theft auto');
+
+            if (isGta) {
+                const isUltimate = Boolean(game.editionLabel);
+                return `
+                    <article class="gta-card-glow rounded-2xl overflow-hidden card-hover flex flex-col justify-between">
+                        <div>
+                            <div onclick="openGameModal('${game.id}')" class="relative aspect-[3/4] w-full bg-zinc-950 overflow-hidden cursor-pointer group">
+                                ${isUltimate ? `
+                                    <div class="w-full bg-[#1a1333] border-b border-purple-500/40 py-1 px-2 text-center">
+                                        <span class="text-[9px] sm:text-[10px] font-bold tracking-[0.26em] text-zinc-200 uppercase block truncate">
+                                            ${game.editionLabel}
+                                        </span>
+                                    </div>
+                                ` : ''}
+
+                                <img src="${game.image}" 
+                                     onerror="this.onerror=null; this.src='${game.fallback}'"
+                                     alt="${game.title}" 
+                                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300 ${isUltimate ? 'brightness-105 saturate-110' : ''}">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#0b0b0e] via-transparent to-purple-950/20 pointer-events-none"></div>
+
+                                ${game.discount ? `
+                                    <span class="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 bg-[#f97316] text-white text-[10px] sm:text-xs font-black px-2 py-0.5 rounded-md shadow-lg">
+                                        ${game.discount}
+                                    </span>
+                                ` : ''}
+
+                                <div class="hidden sm:flex absolute bottom-3 right-3 items-center text-[11px] text-zinc-200 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span class="bg-black/80 border border-fuchsia-500/40 px-2.5 py-1 rounded-md text-fuchsia-300 font-semibold">
+                                        <i class="fa-solid fa-play mr-1 text-[9px]"></i>Ver info y tráiler
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="px-3.5 pt-3 pb-2 sm:px-4 sm:pt-3.5 sm:pb-2.5">
+                                <h3 onclick="openGameModal('${game.id}')" class="text-sm sm:text-[16px] font-extrabold text-white leading-snug line-clamp-2 min-h-[2.5rem] cursor-pointer hover:text-fuchsia-400 transition-colors" title="${game.title}">
+                                    ${game.title}
+                                </h3>
+                                <div class="mt-1.5 text-[10px] sm:text-[11px] font-bold tracking-wider text-zinc-400 uppercase">
+                                    <span>${(game.category || 'ACCIÓN').toUpperCase()}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-3.5 pb-3.5 sm:px-4 sm:pb-4 pt-2 border-t border-zinc-800/80 space-y-2">
+                            <button onclick="addToCart('${game.id}-pri', '${safeTitle}', '${game.platform}', 'Primaria', ${game.pricePri}, '${game.image}')" 
+                                    class="w-full flex items-center justify-between hover:bg-purple-950/35 px-1.5 py-1 rounded-lg transition-all group">
+                                <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#a78bfa] group-hover:text-fuchsia-300">
+                                    PRIMARIA
+                                </span>
+                                <div class="flex items-center gap-1.5 shrink-0">
+                                    ${game.oldPricePri ? `<span class="text-[11px] text-zinc-500 line-through font-bold">${formatARS(game.oldPricePri)}</span>` : ''}
+                                    <span class="font-black text-white text-sm sm:text-[17px] tracking-tight">${formatARS(game.pricePri)}</span>
+                                </div>
+                            </button>
+
+                            <button onclick="addToCart('${game.id}-sec', '${safeTitle}', '${game.platform}', 'Secundaria', ${game.priceSec}, '${game.image}')" 
+                                    class="w-full flex items-center justify-between hover:bg-purple-950/35 px-1.5 py-1 rounded-lg transition-all group">
+                                <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#a78bfa] group-hover:text-fuchsia-300">
+                                    SECUNDARIA
+                                </span>
+                                <div class="flex items-center gap-1.5 shrink-0">
+                                    ${game.oldPriceSec ? `<span class="text-[11px] text-zinc-500 line-through font-bold">${formatARS(game.oldPriceSec)}</span>` : ''}
+                                    <span class="font-black text-white text-sm sm:text-[17px] tracking-tight">${formatARS(game.priceSec)}</span>
+                                </div>
+                            </button>
+                        </div>
+                    </article>
+                `;
+            }
+
             return `
                 <article class="bg-cardBg border border-cardBorder rounded-2xl overflow-hidden card-hover flex flex-col justify-between">
                     <div>
@@ -2119,9 +2232,11 @@
                                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
                             <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-black/25"></div>
 
-                            <span class="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 bg-emerald-500 text-zinc-950 text-[10px] sm:text-xs font-black px-1.5 py-0.5 sm:px-2 rounded-md">
-                                ${game.discount}
-                            </span>
+                            ${game.discount ? `
+                                <span class="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 bg-emerald-500 text-zinc-950 text-[10px] sm:text-xs font-black px-1.5 py-0.5 sm:px-2 rounded-md">
+                                    ${game.discount}
+                                </span>
+                            ` : ''}
 
                             <div class="hidden sm:flex absolute bottom-3 right-3 items-center text-[11px] text-zinc-200">
                                 <span class="bg-black/75 border border-white/15 px-2.5 py-1 rounded-md text-blue-300 font-semibold">
@@ -2155,7 +2270,7 @@
                                 class="w-full flex items-center justify-between bg-zinc-950 hover:bg-zinc-900 border border-zinc-800/80 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl transition-all group">
                             <div class="text-left min-w-0">
                                 <span class="block text-[9px] sm:text-[10px] font-bold uppercase text-blue-400">Primaria</span>
-                                <span class="hidden sm:block text-[11px] text-zinc-500">Jugás en tu perfil</span>
+                                <span class="hidden sm:block text-[11px] text-zinc-500">Jugás en tu propio perfil</span>
                             </div>
                             <div class="flex items-center gap-1.5 shrink-0">
                                 <span class="font-bold text-zinc-200 text-xs sm:text-sm">${formatARS(game.pricePri)}</span>
@@ -2302,7 +2417,7 @@
                 if (currentFilter === 'PS5' || currentFilter === 'PS4') {
                     return matchesSearch && game.platform.includes(currentFilter);
                 }
-                return matchesSearch && game.category === currentFilter;
+                return matchesSearch && game.category.toLowerCase() === currentFilter.toLowerCase();
             });
 
             if (filtered.length === 0) {
